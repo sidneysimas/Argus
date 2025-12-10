@@ -16,7 +16,7 @@
 
 ## About The Project
 
-Argus is an all-in-one, Python-powered toolkit designed to streamline the process of information gathering and reconnaissance. With a user-friendly interface and a suite of powerful modules, Argus empowers you to explore networks, web applications, and security configurations efficiently and effectively.
+Argus is an all-in-one, Python-powered toolkit designed to streamline the process of information gathering and reconnaissance. It brings together a clean, intuitive interface and a wide range of reliable modules, allowing analysts to efficiently assess networks, web applications, and security environments with consistency and precision.
 
 ## ⚠️ WARNING: LEGAL DISCLAIMER
 
@@ -55,6 +55,7 @@ Take a look at Argus in action:
 ```bash
 git clone https://github.com/jasonxtn/argus.git
 cd argus
+pip install -r requirements.txt
 python -m argus
 ```
 
@@ -89,7 +90,8 @@ docker run -it --rm -v $(pwd)/results:/app/results argus-recon:latest
 1. **Launch Argus**:
    ```bash
    argus
-   # or if running from folder: python -m argus
+
+   # if running from folder: python -m argus
    ```
 
 2. **Browse available modules**:
@@ -148,68 +150,7 @@ docker run -it --rm -v $(pwd)/results:/app/results argus-recon:latest
 | `quit` | Utility | Exit Argus | `quit` |
 | `help` | Help | Show help | `help` |
 
-#### 🔄 **Command Aliases**
-| Alias | Full Command | Description |
-|-------|--------------|-------------|
-| `hm` | `helpmod` | Module help |
 
-#### 🎯 **Quick Reference**
-```bash
-# Basic workflow
-modules          # Browse available modules
-use 42           # Select module 42
-set target example.com
-run              # Execute module
-
-# Search and filter
-search ssl       # Find SSL-related modules
-modules tag:dns  # Filter by capability tag
-
-# Batch operations
-runall infra     # Run all infrastructure modules
-runfav           # Run favorite modules
-
-# Information
-show modules     # Detailed module list
-helpmod 42       # Module-specific help
-scope            # Current configuration
-show api_status  # Check API configuration
-```
-
-### Example Session
-
-```bash
-$ argus
-
-argus> modules
-argus> use 1
-argus> set target example.com
-argus> set threads 10
-argus> run
-
-argus> modules -d
-argus> use 65
-argus> set max_pages 200
-argus> run
-
-argus> show api_status
-argus> fav add 1
-argus> runfav
-```
-
----
-
-## 🛠️ Available Modules
-
-<div align="center">
-
-### **134 Security Reconnaissance Modules**
-
-*Comprehensive toolkit for network, web, and security analysis*
-
-</div>
-
----
 
 ### 📋 **All Modules** *(135 total)*
 
@@ -270,51 +211,6 @@ argus> runfav
 
 ---
 
-### 🎯 **Module Usage Tips**
-
-<div align="center">
-
-**Quick Module Discovery**
-
-</div>
-
-```bash
-# Browse all modules
-modules
-
-# Filter by category
-modules infra    # Network & Infrastructure
-modules web      # Web Application Analysis  
-modules sec      # Security & Threat Intelligence
-
-# Search by capability
-search dns       # Find DNS-related modules
-search ssl       # Find SSL/TLS modules
-search api       # Find API testing modules
-
-# Get detailed help
-helpmod 42       # Module-specific help
-show modules -d  # Detailed module list
-```
-
-
----
-
-## ⚡ Performance Profiles
-
-Pre‑configured scan depths and behaviors for different use cases:
-
-| Profile | Use When | Effect |
-|---------|----------|--------|
-| `speed` | Quick reconnaissance | Small crawl, faster timeout, minimal threads |
-| `deep` | Full comprehensive sweep | Large crawl, slower timeout, full cert chain, maximum threads |
-| `safe` | Low-impact scanning | Small crawl, conservative timeouts |
-
-**Usage:**
-```bash
-argus> profile deep
-argus> run 1 3 8
-```
 
 
 
@@ -349,20 +245,6 @@ Edit `config/settings.py` to customize:
 
 ---
 
-### Available Make Commands
-
-```bash
-make help          # Show all available commands
-make install       # Install Argus
-make install-dev   # Install with development dependencies
-make test          # Run tests
-make lint          # Run code linting
-make format        # Format code with black/isort
-make docker-build  # Build Docker image
-make security-check # Run security analysis
-```
-
----
 
 ## 🔄 Changelog
 
